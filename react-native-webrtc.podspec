@@ -22,3 +22,4 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = 'ios/WebRTC.framework'
   s.xcconfig            = { 'OTHER_LDFLAGS' => '-framework WebRTC' }
   s.dependency          'React'
+end
