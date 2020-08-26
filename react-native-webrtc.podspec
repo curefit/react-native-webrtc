@@ -9,16 +9,16 @@ Pod::Spec.new do |s|
   s.homepage            = 'https://github.com/react-native-webrtc/react-native-webrtc'
   s.license             = package['license']
   s.author              = 'https://github.com/react-native-webrtc/react-native-webrtc/graphs/contributors'
-  s.source              = { :git => 'git@github.com:react-native-webrtc/react-native-webrtc.git', :tag => 'release #{s.version}' }
+  s.source              = { :git => 'git@github.com:curefit/react-native-webrtc.git', :tag => 'release #{s.version}' }
   s.requires_arc        = true
 
-  s.platform            = :ios, '11.0'
+  s.ios.deployment_target = '11.0'
+  s.tvos.deployment_target = '11.0'
 
-  s.preserve_paths      = 'ios/**/*'
+  s.preserve_paths      = '**/*.js'
   s.source_files        = 'ios/**/*.{h,m}'
   s.libraries           = 'c', 'sqlite3', 'stdc++'
-  s.framework           = 'AudioToolbox','AVFoundation', 'CoreAudio', 'CoreGraphics', 'CoreVideo', 'GLKit', 'VideoToolbox'
-  s.ios.vendored_frameworks = 'ios/WebRTC.framework'
+  s.public_header_files = 'ios/WebRTC.framework/Headers/**/*.h'
+  s.vendored_frameworks = 'ios/WebRTC.framework'
   s.xcconfig            = { 'OTHER_LDFLAGS' => '-framework WebRTC' }
   s.dependency          'React'
-end
